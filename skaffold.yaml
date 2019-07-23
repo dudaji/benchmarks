@@ -1,0 +1,13 @@
+apiVersion: skaffold/v1beta13
+kind: Config
+build:
+  artifacts:
+  - image: 252773325474.dkr.ecr.us-east-1.amazonaws.com/fcam/backend
+    sync:
+      manual:
+      - src: run_skt_test.sh
+        dest: run_skt_test.sh
+deploy:
+  kubectl:
+    manifests:
+      - pod.yaml
